@@ -1,6 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from 'react-dom';
 
 const Brick = props => <div className="brick" />;
 
-ReactDOM.render(<Brick />, document.getElementById("game"));
+render(<Brick />, document.getElementById("game"));
