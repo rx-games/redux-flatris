@@ -4,7 +4,12 @@ import { render } from "react-dom";
 import { createStore } from "redux";
 import { Provider, connect } from "react-redux";
 
-const colorReducer = (state, action) => state;
+const colorReducer = (state, action) => {
+  if (action.type === "COLOR_CHANGED") {
+    return Object.assign({}, state, { brick: { color: action.color } });
+  }
+  return state;
+};
 
 const store = createStore(
   colorReducer,
