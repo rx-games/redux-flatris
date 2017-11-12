@@ -26,8 +26,8 @@
     "compress": "^0.99.0",
     "compression": "^1.7.1",
     "express": "^4.16.2",
-    "react": "16",
-    "react-dom": "^16.1.0",
+    "react": "15",
+    "react-dom": "15",
     "uglifyjs-webpack-plugin": "^1.0.1",
     "webpack": "3.8.1"
   }
