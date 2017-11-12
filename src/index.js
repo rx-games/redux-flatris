@@ -4,6 +4,13 @@ import { render } from "react-dom";
 import { createStore } from "redux";
 import { Provider, connect } from "react-redux";
 
+import { Observable } from "rxjs/Observable";
+import "rxjs/add/observable/interval";
+
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/take";
+import "rxjs/add/operator/repeat";
+
 const colorReducer = (state, action) => {
   if (action.type === "COLOR_CHANGED") {
     return Object.assign({}, state, { brick: { color: action.color } });
@@ -32,3 +39,12 @@ render(
   </Provider>,
   document.getElementById("game")
 );
+
+const colors = ["salmon", "sky", "yellow", "green"];
+
+const actions$ = Observable.interval(1000)
+  .take(colors.length)
+  .map(index => colors[index])
+  .map(color => ({ type: "COLOR_CHANGED", color }));
+
+actions$.repeat(1000).subscribe(action => store.dispatch(action));
