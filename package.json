@@ -1,0 +1,18 @@
+{
+  "name": "redux-flatris",
+  "version": "1.0.0",
+  "description": "Flatris implementation with Redux and Redux observable and React for rendering views",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sagar12861/redux-flatris.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sagar12861/redux-flatris/issues"
+  },
+  "homepage": "https://github.com/sagar12861/redux-flatris#readme"
+}
