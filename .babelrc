@@ -1,0 +1,11 @@
+{
+  "presets": [
+    "react",
+    [
+      "env",
+      {
+        "useBuiltIns": "entry"
+      }
+    ]
+  ]
+}
