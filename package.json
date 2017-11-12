@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Flatris implementation with Redux and Redux observable and React for rendering views",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "webpack",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -14,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/sagar12861/redux-flatris/issues"
   },
-  "homepage": "https://github.com/sagar12861/redux-flatris#readme"
+  "homepage": "https://github.com/sagar12861/redux-flatris#readme",
+  "dependencies": {
+    "compress": "^0.99.0",
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
+    "uglifyjs-webpack-plugin": "^1.0.1",
+    "webpack": "3.8.1"
+  }
 }
