@@ -21,6 +21,7 @@ import "rxjs/add/operator/map";
 import "rxjs/add/operator/mapTo";
 import "rxjs/add/operator/take";
 import "rxjs/add/operator/repeat";
+import "rxjs/add/operator/filter";
 
 const boxBoundries = {
   x: {
@@ -127,6 +128,32 @@ const moves$ = Observable
     }
   });
 
-moves$.map(move => ({
+const moveToCoordinate = {
+  LEFT: {
+    coordinate: 'x',
+    distance: -1
+  },
+  RIGHT: {
+    coordinate: 'x',
+    distance: 1
+  },
+  UP: {
+    coordinate: 'y',
+    distance: -1
+  },
+  DOWN: {
+    coordinate: 'y',
+    distance: 1
+  }
+}
+
+moves$.filter(move => {
+  const current_position = store.getState().brick.position;
+  const next_position = Object.assign({}, current_position, {
+    [moveToCoordinate[move]['coordinate']]: current_position[moveToCoordinate[move]['coordinate']] + moveToCoordinate[move]['distance'],
+  });
+  console.log(next_position);
+  return isInside(next_position, moveToCoordinate[move]['coordinate']); 
+}).map(move => ({
   type: 'MOVED_' + move
 })).subscribe(action => store.dispatch(action));
